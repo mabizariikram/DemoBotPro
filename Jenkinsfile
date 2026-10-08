@@ -15,11 +15,14 @@ pipeline {
             }
 
             steps {
+
                 sh 'rm -rf allure-results allure-report'
 
                 sh 'npm ci'
 
                 sh 'npx cypress run'
+
+                sh 'chown -R 1000:1000 allure-results || true'
             }
         }
     }
