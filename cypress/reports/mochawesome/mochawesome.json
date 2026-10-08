@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-10-08T14:17:16.256Z",
+    "end": "2026-10-08T14:17:34.773Z",
+    "duration": 18517,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2e5548b0-d72e-4f25-b546-00fca85a616e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\parcourGel.cy.js",
+      "file": "cypress\\e2e\\parcourGel.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cfade598-c1bd-45b2-9f0f-660c3cbb5b0c",
+          "title": "authentification sauce Demo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "go to New Gel+ ",
+              "fullTitle": "authentification sauce Demo go to New Gel+ ",
+              "timedOut": null,
+              "duration": 12522,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Click on the \"New Gel+ (Demo)\" button + assertion to verify that the URL includes \"/newgel-demo/\"\n_mainPage.default.clickNewGel();\n// Verify that the chatbot message is visible cest une fenetre de dialogue qui s'ouvre en bas à droite de l'écran\ncy.on('window:alert', str => {\n  expect(str).to.equal('Hi! 👋 Need help?');\n});\n// click sur le btn bot\n_chatbotPage.default.clickBtnbot();\n_chatbotPage.default.getMsgassistant();\n//   cy.get('#fab-root', { timeout: 15000 })\n//   .shadow()\n//   .find('.bpFabContainer')\n//   .click({ force: true })\n// saisir un message dans le champ de saisie du chatbot\n_chatbotPage.default.clickBtninput(\"What is NewGel+?\");\n_chatbotPage.default.getmsgWING().should('contain.text', 'is a');\n// saisir un autre message dans le champ de saisie du chatbot\n_chatbotPage.default.clickBtninput(\"What are its benefits?\");\n// scroller vers le bas pour voir la réponse du bot\n_chatbotPage.default.clickBtnscrolldown();\n_chatbotPage.default.getmsgWING().should('contain.text', 'NewGel+ ');\n// saisir un autre message dans le champ de saisie du chatbot qui na ps de relation avec le sujet du bot\n_chatbotPage.default.clickBtninput(\"What is the weather like today?\");\n_chatbotPage.default.clickBtnscrolldown();\n_chatbotPage.default.getmsgWING().should('contain.text', ' I couldn\\'t find that information in the company\\'s documentation.');\n// clicker sur le bouton de fermeture du chatbot\n_chatbotPage.default.clickClosebtn();\n// reclicker sur le bouton du bot pour le réouvrir\n_chatbotPage.default.clickBtnbot();\n// clicker sur le bouton de redémarrage du chatbot\n_chatbotPage.default.clickRestartbtn();\n_chatbotPage.default.clickNewConv();\n_chatbotPage.default.getMsgassistant();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '[ <p.bpMessageBlocksTextText>, 1 more... ]' to contain text 'is a', but the text was 'TodayWhat is NewGel+?'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '[ <p.bpMessageBlocksTextText>, 1 more... ]' to contain text 'is a', but the text was 'TodayWhat is NewGel+?'\n    at Context.eval (webpack://demobotpro/./cypress/e2e/parcourGel.cy.js:40:25)",
+                "diff": "- 'TodayWhat is NewGel+?'\n+ 'is a'\n"
+              },
+              "uuid": "b900f8a7-be0b-4f96-b49e-ac9c75956f89",
+              "parentUUID": "cfade598-c1bd-45b2-9f0f-660c3cbb5b0c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "b900f8a7-be0b-4f96-b49e-ac9c75956f89"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 12522,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
