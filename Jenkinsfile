@@ -22,7 +22,7 @@ pipeline {
 
                 sh 'npx cypress run'
 
-                sh 'chown -R 1000:1000 allure-results || true'
+                sh 'chmod -R 777 allure-results || true'
             }
         }
     }
